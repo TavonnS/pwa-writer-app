@@ -27,4 +27,29 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
+
+registerRoute(
+  // Add your asset matching criteria here, e.g., /\.(js|css|png|jpg)$/
+  // Modify the RegExp pattern based on the types of assets you want to cache
+  ({ request }) => /\.(js|css|png|jpg)$/.test(request.url),
+  assetCache
+);
+
+// Register a route for assets using the CacheFirst strategy
+registerRoute(
+  // Add your asset matching criteria here, e.g., /\.(js|css|png|jpg)$/
+  // Modify the RegExp pattern based on the types of assets you want to cache
+  ({ request }) => /\.(js|css|png|jpg)$/.test(request.url),
+  assetCache
+);
+
+// Register a default route for other requests
+registerRoute(
+  ({ request }) => true, // Match all requests
+  pageCache // Use the pageCache strategy for other requests
+);
+
+
+
+
 registerRoute();
