@@ -19,6 +19,18 @@ const pageCache = new CacheFirst({
   ],
 });
 
+const assetCache = new CacheFirst({
+  cacheName: 'asset-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 30 * 24 * 60 * 60,
+    }),
+  ],
+});
+
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
@@ -27,20 +39,13 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-
-registerRoute(
-  // Add your asset matching criteria here, e.g., /\.(js|css|png|jpg)$/
-  // Modify the RegExp pattern based on the types of assets you want to cache
-  ({ request }) => /\.(js|css|png|jpg)$/.test(request.url),
-  assetCache
-);
-
 // Register a route for assets using the CacheFirst strategy
+
 registerRoute(
   // Add your asset matching criteria here, e.g., /\.(js|css|png|jpg)$/
   // Modify the RegExp pattern based on the types of assets you want to cache
   ({ request }) => /\.(js|css|png|jpg)$/.test(request.url),
-  assetCache
+  assetCache // Use the assetCache strategy for assets
 );
 
 // Register a default route for other requests
@@ -49,7 +54,3 @@ registerRoute(
   pageCache // Use the pageCache strategy for other requests
 );
 
-
-
-
-registerRoute();

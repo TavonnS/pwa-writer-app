@@ -16,12 +16,12 @@ module.exports = () => {
       install: './src/js/install.js',
     },
     output: {
-      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js',  
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html', // path
         filename: 'index.html',
         chunks: ['main'],
       }),
@@ -31,11 +31,14 @@ module.exports = () => {
         description: 'A simple note taking app',
         background_color: '#ffffff',
         theme_color: '#000000',
+        start_url: '/client/index.html', 
+        filename: '/client/manifest.json',
         icons: [
           {
-            src: path.resolve('src/images/icon.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
+            
           },
         ],
       }),
