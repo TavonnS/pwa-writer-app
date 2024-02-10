@@ -15,11 +15,14 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js',
       database: './src/js/database.js',
-      index: './src/js/index.js',
+      editor: './src/js/editor.js',
+      header: './src/js/header.js',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',  
+      publicPath: '',
+
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -34,7 +37,6 @@ module.exports = () => {
         background_color: '#ffffff',
         theme_color: '#000000',
         start_url: '/', 
-        publicPath: '/',
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
@@ -45,7 +47,7 @@ module.exports = () => {
  }),
       new InjectManifest({
         swSrc: './src-sw.js', // Path to your service worker file
-        swDest: './service-worker.js', // Output service worker file
+        swDest: 'service-worker.js', // Output service worker file
       }),
     ],
     module: {

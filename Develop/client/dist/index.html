@@ -1,40 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>J.A.T.E</title>
-    
-      <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
-      </link>
-      <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
-      </script>
-      <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
-      </script>
-      <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
-      </link>
-  <script defer src="main.bundle.js"></script><script defer src="install.bundle.js"></script><script defer src="database.bundle.js"></script><script defer src="index.bundle.js"></script><meta name="theme-color" content="#000000" /><link rel="manifest" href="/manifest.524562844b9a5fefe81c6b16d80ea2d4.json" /></head>
-  <body>
-    <nav id="navbar">
-      <div class="nav-btn">
-        <a class="btn btn-sm btn-dark" id="buttonInstall" role="button">Install!</a>
-      </div>
-     <h1> Just Another Text Editor</h1>
-     
-      <div class="navbar-brand" 
-            ><img src="./client/dist/assets/icon_96x96.png"
-          /></div>
-    </nav>
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>J.A.T.E</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+    <script defer="defer" src="main.bundle.js"></script>
+    <script defer="defer" src="install.bundle.js"></script>
+    <script defer="defer" src="database.bundle.js"></script>
+    <script defer="defer" src="editor.bundle.js"></script>
+    <script defer="defer" src="header.bundle.js"></script>
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="manifest.a1dab1fdeaf8d8164a9d966a4b8f14cf.json" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-btn"><a class="btn btn-sm btn-dark" id="buttonInstall" role="button">Install!</a></div>
+        <h1>Just Another Text Editor</h1>
+        <div class="navbar-brand"><img src="./client/dist/assets/icon_96x96.png" /></div>
+    </nav>
     <main id="main">
-      <div class="loading-container">
-        <div class="loading-spinner"></div>
-      </div>
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+        </div>
     </main>
-    
-  </body>
+    <script src="service-worker.js"></script> <!-- I added this script manually-->
+</body>
+
 </html>
