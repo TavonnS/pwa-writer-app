@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "nodemon server.js",
-    "start": "concurrently cd server && npm start && cd client && npm start",
+    "start": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
 
     "server": "",
     "build": "",
